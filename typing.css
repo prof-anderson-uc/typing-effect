@@ -1,0 +1,37 @@
+
+.type-area {
+   display: grid; /* Uses CSS Grid to center the content both vertically and horizontally */
+   justify-content: center; /* Horizontally center the content within the grid container */
+   align-items: center; /* Vertically center the content within the grid container */
+   background-color: #e8e8e8; /* Background color of content area */
+   padding: .5rem; /* Adds some space inside the container */
+ }
+ 
+ .typing {
+   /* The width and steps() values should match the number of characters in your text */
+   width: 22ch; /* Set the final width to 22 characters (ch = width of the "0" character in monospace fonts) */
+   
+   animation: 
+     typing 2s steps(22), /* Animate the typing effect over 2 seconds, stepping forward one character at a time */
+     blink .5s step-end infinite alternate; /* Animate the blinking cursor effect repeatedly */
+   white-space: nowrap; /* Prevent the text from wrapping to the next line */
+   overflow: hidden; /* Hide the extra text that hasn't "typed in" yet */
+   border-right: 3px solid; /* Create a right border to simulate a typing cursor */
+   font-family: monospace; /* Use a monospace font for consistent character width */
+   font-size: 200%; /* Size of the text being animated */
+ }
+ 
+ @keyframes typing {
+   from {
+     width: 0; /* Start with no visible width (so no text shows at first) */
+   }
+   /* No "to" value needed—CSS will animate from 0 to the value in .typing (22ch) */
+ }
+ 
+ @keyframes blink {
+   50% {
+     border-color: transparent; /* Halfway through the animation, make the border invisible to simulate blinking */
+   }
+   /* The other 50% of the time, it uses the default border color (visible) */
+ }
+ 
